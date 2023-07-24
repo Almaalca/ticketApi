@@ -1,0 +1,36 @@
+
+type Query {
+    tickets: [Ticket]
+    states:[State]
+    ticketsFilter(page: Int!, size: Int!):TicketPage
+}
+
+type Mutation{
+    createTicket(ticket:TicketDTO):Ticket
+    updateTicket(ticket:TicketDTO):Ticket
+    removeTicket(id:ID!):String
+}
+
+type Ticket {
+    id: ID!
+    user: String!
+    state: State
+    creationDate: String!
+    updateDate: String!
+}
+
+type State {
+    id: ID!
+    name: String!
+}
+
+input TicketDTO{
+    id: ID
+    user: String!
+    stateId: ID!
+}
+
+type TicketPage{
+    items:[Ticket]
+    total: Int!
+}

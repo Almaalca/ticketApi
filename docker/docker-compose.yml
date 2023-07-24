@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  postgresql:
+    build: ./postgresql
+    container_name: docker_postgresql_1
+    volumes:
+      - ./double-db:/var/lib/postgresql/data:rw
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=doubleVPartners.  
